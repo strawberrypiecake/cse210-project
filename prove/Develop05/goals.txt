@@ -1,0 +1,2 @@
+0
+EternalGoal|Go to the Temple once a week|I will strive to go to the Temple at least once a week|3|False

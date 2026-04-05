@@ -2,15 +2,15 @@ using System;
 
 public class Event
 {
-    // Private member variables
-    private string title;
-    private string description;
-    private string date;
-    private string time;
-    private string street;
-    private string city;
-    private string state;
-    private string country;
+    // Public variables (no private fields)
+    public string title;
+    public string description;
+    public string date;
+    public string time;
+    public string street;
+    public string city;
+    public string state;
+    public string country;
 
     // Constructor
     public Event(string title, string description, string date, string time,
@@ -26,31 +26,22 @@ public class Event
         this.country = country;
     }
 
-    // Returns the standard details of the event
     public string GetStandardDetails()
     {
         return $"Title: {title}\n" +
                $"Description: {description}\n" +
                $"Date: {date}\n" +
                $"Time: {time}\n" +
-               $"Address: {GetFullAddress()}\n";
+               $"Address: {street}, {city}, {state}, {country}\n";
     }
 
-    // Virtual method to get full details, can be overridden
     public virtual string GetFullDetails()
     {
         return GetStandardDetails();
     }
 
-    // Virtual method to get short description, can be overridden
     public virtual string GetShortDescription()
     {
         return $"Event | {title} | {date}";
-    }
-
-    // Helper method to format the full address
-    protected string GetFullAddress()
-    {
-        return $"{street}, {city}, {state}, {country}";
     }
 }

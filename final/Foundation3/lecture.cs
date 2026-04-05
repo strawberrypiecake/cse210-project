@@ -2,8 +2,8 @@ using System;
 
 public class Lecture : Event
 {
-    private string speakerName;
-    private int capacity;
+    public string speakerName;
+    public int capacity;
 
     public Lecture(string title, string description, string date, string time,
                    string street, string city, string state, string country,
@@ -16,7 +16,7 @@ public class Lecture : Event
 
     public override string GetFullDetails()
     {
-        return base.GetStandardDetails() +
+        return GetStandardDetails() +
                $"Type: Lecture\n" +
                $"Speaker: {speakerName}\n" +
                $"Capacity: {capacity}\n";
@@ -24,6 +24,6 @@ public class Lecture : Event
 
     public override string GetShortDescription()
     {
-        return $"Lecture | {base.GetShortDescription().Split('|')[1].Trim()} | {base.GetShortDescription().Split('|')[2].Trim()}";
+        return $"Lecture | {title} | {date}";
     }
 }

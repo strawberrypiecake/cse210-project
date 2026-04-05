@@ -1,35 +1,25 @@
 public class Address
 {
-    private string _street;
-    private string _city;
-    private string _stateOrProvince;
-    private string _country;
+    public string street;
+    public string city;
+    public string stateOrProvince;
+    public string country;
 
     public Address(string street, string city, string state, string country)
     {
-        _street = street;
-        _city = city;
-        _stateOrProvince = state;
-        _country = country;
+        this.street = street;
+        this.city = city;
+        this.stateOrProvince = state;
+        this.country = country;
     }
 
     public bool IsInUSA()
     {
-        return _country.Trim().ToUpper() == "USA";
+        return country.Trim().ToUpper() == "USA";
     }
 
     public string GetFullAddress()
     {
-        return $"{_street}\n{_city}, {_stateOrProvince}\n{_country}";
+        return $"{street}\n{city}, {stateOrProvince}\n{country}";
     }
-
-    public void SetStreet(string street) => _street = street;
-    public void SetCity(string city) => _city = city;
-    public void SetState(string state) => _stateOrProvince = state;
-    public void SetCountry(string country) => _country = country;
-
-    public string GetStreet() => _street;
-    public string GetCity() => _city;
-    public string GetState() => _stateOrProvince;
-    public string GetCountry() => _country;
 }

@@ -5,27 +5,27 @@ namespace YouTubeTracker
 {
     public class Video
     {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public int LengthInSeconds { get; set; }
-        public List<Comment> Comments { get; private set; }
+        public string title;
+        public string author;
+        public int lengthInSeconds;
+        public List<Comment> comments;
 
         public Video(string title, string author, int lengthInSeconds)
         {
-            Title = title;
-            Author = author;
-            LengthInSeconds = lengthInSeconds;
-            Comments = new List<Comment>();
+            this.title = title;
+            this.author = author;
+            this.lengthInSeconds = lengthInSeconds;
+            comments = new List<Comment>();
         }
 
         public void AddComment(Comment comment)
         {
-            Comments.Add(comment);
+            comments.Add(comment);
         }
 
         public int GetNumberOfComments()
         {
-            return Comments.Count;
+            return comments.Count;
         }
     }
 }

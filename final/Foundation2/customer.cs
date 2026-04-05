@@ -1,22 +1,16 @@
- public class Customer
+public class Customer
 {
-    private string _name;
-    private Address _address;
+    public string name;
+    public Address address;
 
     public Customer(string name, Address address)
     {
-        _name = name;
-        _address = address;
+        this.name = name;
+        this.address = address;
     }
-
-    public string GetName() => _name;
-    public Address GetAddress() => _address;
 
     public bool LivesInUSA()
     {
-        return _address.IsInUSA();
+        return address.IsInUSA();
     }
-
-    public void SetName(string name) => _name = name;
-    public void SetAddress(Address address) => _address = address;
 }

@@ -3,48 +3,47 @@ using System.Text;
 
 public class Order
 {
-    private List<Product> _products;
-    private Customer _customer;
+    public List<Product> products;
+    public Customer customer;
 
     public Order(Customer customer)
     {
-        _customer = customer;
-        _products = new List<Product>();
+        this.customer = customer;
+        products = new List<Product>();
     }
 
     public void AddProduct(Product product)
     {
-        _products.Add(product);
+        products.Add(product);
     }
 
     public decimal GetTotalPrice()
     {
         decimal total = 0;
-        foreach (var product in _products)
+
+        foreach (var product in products)
         {
             total += product.GetTotalCost();
         }
 
-        decimal shipping = _customer.LivesInUSA() ? 5m : 35m;
+        decimal shipping = customer.LivesInUSA() ? 5m : 35m;
         return total + shipping;
     }
 
     public string GetPackingLabel()
     {
         StringBuilder label = new StringBuilder("Packing Label:\n");
-        foreach (var product in _products)
+
+        foreach (var product in products)
         {
-            label.AppendLine($"{product.GetName()} (ID: {product.GetProductId()})");
+            label.AppendLine($"{product.name} (ID: {product.productId})");
         }
+
         return label.ToString();
     }
 
     public string GetShippingLabel()
     {
-        return $"Shipping Label:\n{_customer.GetName()}\n{_customer.GetAddress().GetFullAddress()}";
+        return $"Shipping Label:\n{customer.name}\n{customer.address.GetFullAddress()}";
     }
-
-    public List<Product> GetProducts() => _products;
-    public Customer GetCustomer() => _customer;
-    public void SetCustomer(Customer customer) => _customer = customer;
 }
